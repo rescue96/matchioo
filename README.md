@@ -1,67 +1,86 @@
-# matchioo-framer-website
+# Matchioo
 
-A Next.js project generated from [https://matchioo.framer.website/](https://matchioo.framer.website/) by [FNJ](https://framertonextjs.com).
+Matchioo is a Next.js website for a ceremonial-grade matcha cafe. It presents
+the brand, matcha drinks, menu, testimonials, team, events, locations, and
+frequently asked questions in a responsive, Framer-authored experience.
 
-## What this is
+## How the app works
 
-3 page(s) built from 21 React section component(s). Unlike a
-look-alike export, these are real components you can read and edit — and they
-still render **the same DOM** as the original Framer site: every element,
-attribute, text node and hydration marker, in the same order. Framer's runtime
-adopts the page exactly as it would its own, so nothing about the published
-behaviour changes.
+The site has three routes:
 
-(The bytes are not character-for-character identical, and don't need to be:
-React writes `fetchPriority` where Framer wrote `fetchpriority`, and
-re-serialises `style="a: 1;"` as `style="a:1"`. Both parse to the same DOM
-and compute the same CSS.)
+- `/` - the main Matchioo experience
+- `/privacy` - the privacy page
+- `/404` - the not-found page
 
-```
-src/views/         one component per route, composed from its sections
-src/sections/      the Framer sections, one file each, named as you named them
-src/manifest.json  the <head> and the verbatim fragments for each page
-scripts/           the prerender step
-app/               route handlers that serve the prerendered HTML
-public/assets/     self-hosted images, fonts and media
-```
+Each page is assembled from React components in `src/views/` and
+`src/sections/`. The original page metadata, responsive configuration, and
+runtime fragments are stored in `src/manifest.json`; images, fonts, and other
+self-hosted assets are in `public/assets/`.
 
-## Running it
+The custom route handlers return complete HTML documents rather than standard
+Next.js page markup. In development, they render the React components on every
+request, so edits appear after a refresh. During a production build, the
+`prerender` script renders each page once into `.rendered/`, and the route
+handlers serve those generated files. This preserves the original Framer
+markup and client-side behavior while keeping the page sections editable as
+normal React code.
+
+## Requirements
+
+- Node.js 20.9 or newer
+- npm
+
+## Run locally
+
+Install dependencies and start the development server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Before you deploy: set `SITE_URL`
+Open `http://localhost:3000` in a browser. The `predev` script automatically
+prepares the rendered page files before Next.js starts.
+
+## Production build
+
+Create and run a production build locally:
+
+```bash
+npm run build
+npm run start
+```
+
+The build runs the prerender step automatically through `prebuild`.
+
+## Configuration
+
+Set `SITE_URL` to the public domain before deployment so canonical and Open
+Graph URLs point to the deployed site:
 
 ```bash
 SITE_URL=https://your-domain.com
 ```
 
-Framer hard-codes `<link rel="canonical">` and `og:url` to its own domain.
-Left alone, your deployed copy would tell Google the real page still lives on
-Framer, so they were rewritten to root-relative paths at conversion — at which
-point nobody yet knew your domain.
+`NEXT_PUBLIC_SITE_URL` is also supported. On Vercel, the production domain is
+used automatically when `SITE_URL` is not set.
 
-Setting `SITE_URL` makes them absolute again at build time, pointing at you.
-Without it they stay relative: still valid, but a weaker signal to Google and
-a failing Lighthouse canonical audit. On Vercel this falls back to your
-production domain automatically, so setting it explicitly matters most
-everywhere else.
+## Useful scripts
 
-## Editing
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Prerender pages and create a production build |
+| `npm run start` | Serve the production build |
+| `npm run prerender` | Generate the `.rendered/` HTML files |
+| `npm run localize-assets` | Localize the source assets |
 
-Edit any file under `src/sections/` and refresh — the dev server renders the
-components on every request, so the change is there. (`npm run build` renders
-them once to static HTML, which is what production serves.)
+## Where to edit
 
-Two things in the generated JSX are load-bearing rather than stylistic:
+- `src/sections/home/` - sections for the main page
+- `src/sections/privacy/` - privacy page sections
+- `src/sections/404/` - not-found page sections
+- `src/views/` - page-level composition
+- `public/assets/` - local images, fonts, and media
 
-- **`<Suspense>` boundaries** are Framer's hydration markers. Its runtime reads
-  them to adopt this DOM instead of re-rendering the page, so removing one
-  changes how that part of the page boots.
-- **`data-fnj-slot` spans** are placeholders for fragments React cannot emit in
-  place (scripts, comments). The prerender step swaps them for the original
-  bytes.
 
-Everything else — classes, styles, text, structure — is ordinary JSX.
