@@ -1,0 +1,82 @@
+// The text of this site, lifted out of Framer's compiled components.
+//
+// Edit a value in `c` and it changes on the site. Keys are derived from the
+// original text; changing a value does not change its key, so find the text
+// you want with your editor's search.
+//
+// Run `npm run prerender` (or `npm run build`) after editing. That is what
+// puts your text into the HTML the server sends — without it the change only
+// appears once JavaScript has run, which means a flash of the old text and
+// search engines still reading the old text.
+//
+// 66 editable string(s).
+export const c = {
+  page_not_found: "Page not found",
+  legal: "Legal",
+  last_updated_august_17_2026: "Last Updated: August 17, 2026",
+  information_collection: "Information Collection",
+  we_may_collect_information_that_you_volu: " We may collect information that you voluntarily provide, including:",
+  name_email_address_phone_number_reservat: "Name  Email address  Phone number  Reservation details  Messages submitted through contact forms",
+  use_of_information: "Use of Information",
+  your_information_may_be_used_to: "Your information may be used to:",
+  respond_to_enquiries_process_orders_or_r: "Respond to enquiries  Process orders or reservations  Improve our website and customer experience  Send updates or promotional communications where permitted",
+  cookies: "Cookies",
+  this_website_may_use_cookies_and_similar: "This website may use cookies and similar technologies to improve functionality, remember preferences, and understand how visitors use the site.",
+  third_party_services: "Third-Party Services",
+  to_operate_efficiently_we_partner_with_t: "To operate efficiently, we partner with trusted third-party service providers. We only share",
+  necessary_data_with_these_entities_to_pe: "necessary data with these entities to perform specific functions on our behalf:",
+  data_security: "Data Security",
+  we_take_reasonable_steps_to_protect_your: "We take reasonable steps to protect your personal information. However, no online platform can guarantee complete security.",
+  user_rights: "User Rights",
+  access_request_a_copy_of_the_personal_da: "Access: Request a copy of the personal data we hold about you.",
+  correction_request_updates_to_inaccurate: "Correction: Request updates to inaccurate or incomplete information.",
+  deletion_request_the_removal_of_your_per: "Deletion: Request the removal of your personal data, subject to legal and operational",
+  retention_requirements: "retention requirements.",
+  opt_out_withdraw_consent_for_marketing_c: "Opt-Out: Withdraw consent for marketing communications at any time.",
+  t_8_contact_information: "8. Contact Information",
+  if_you_have_questions_concerns_or_reques: "If you have questions, concerns, or requests regarding this Privacy Policy or our data",
+  practices_please_contact: "practices, please contact :",
+  make_every_matcha_moment_feel_special: "Make every matcha moment feel special",
+  matchioo_matcha_cafe: "Matchioo  Matcha Cafe",
+  contact: "Contact",
+  hello_matchioo_com: "hello@matchioo.com",
+  t_880_1234_567_890: "+880 1234 567 890",
+  t_2026_matchioo_matcha_cafe_all_rights_res: "© 2026 Matchioo Matcha Cafe. All rights reserved.",
+  back_to_top: "Back to top",
+  crafted_for_you: "Crafted for you",
+  for_the_move: "for the move.",
+  t_text: "✨",
+  connect_to_content: "Connect to Content",
+  add_layers_or_components_to_infinitely_l: "Add layers or components to infinitely loop on your page.",
+  likes: " likes",
+  view_all: "View all ",
+  comments: " comments",
+  calm_focus: "Calm Focus",
+  metabolism: "Metabolism",
+  much_more: "& much more...",
+  our_signature_matchas: "Our Signature Matchas",
+  almond_and_oat_milk_options_available: "Almond and oat milk options available",
+  t_7_50: "$7.50",
+  visual_designer: "Visual Designer",
+  we_believe_matcha_is_more_than_a_drink_i: "we believe matcha is more than a drink — it’s a ritual. From sourcing ceremonial-grade leaves to perfecting each blend for your life on the move.",
+  pure: "PURE",
+  authentic: "AUTHENTIC",
+  ceremonial: "CEREMONIAL",
+  explore_the_full_menu: "Explore the full menu",
+  v: "v",
+  review: "#review",
+  i: "i",
+  testimonial: "#testimonial",
+  e: "e",
+  w: "w",
+  meet_our_team: "Meet our team",
+  dreamers_thinkers_matcha_lovers: "dreamers thinkers matcha lovers",
+  brewed_with_passion: "brewed with passion",
+  better_together: "better together",
+  no_items: "No items",
+  find_us: "Find us",
+  t_99_bay_mm_peters_on_m5k_994_london: "99 Bay MM., Peters, ON M5K 994, London",
+  code_component_disabled: "Code component disabled",
+};
+
+export default c;
